@@ -4,13 +4,13 @@ import { navOptions } from "./constants";
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-md fixed-top navbar-dark bg-dark py-1">
       <div className="container-fluid text-decoration-none">
         <NavLink className="navbar-brand" to="/">
           <h3 className="fs-5 mb-0">Red Rogue Inquisitors</h3>
         </NavLink>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler my-1"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNavAltMarkup"
@@ -29,7 +29,13 @@ export default function Navbar() {
                 to={url}
                 key={id}
               >
-                {title}
+                <div
+                  className="w-100"
+                  data-bs-toggle="collapse"
+                  data-bs-target=".navbar-collapse.show"
+                >
+                  {title}
+                </div>
               </NavLink>
             ))}
           </div>

@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useReducer, memo } from "react";
+import HomeMain from "./Main";
+import { init, initialState, Provider, reducer } from "./Reducer";
 
-export default function Home() {
+function Home() {
+  const [state, dispatch] = useReducer(reducer, initialState, init);
   return (
-    <div><h1>Home</h1></div>
-  )
+    <Provider value={{ state, dispatch }}>
+      <HomeMain />
+    </Provider>
+  );
 }
+
+export default memo(Home);
